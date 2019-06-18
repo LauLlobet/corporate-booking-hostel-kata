@@ -1,8 +1,14 @@
 package actions;
 
+import model.Hotels;
+
 import java.util.List;
 
 public class HotelService {
+    public HotelService(Hotels hotels) {
+        throw new UnsupportedOperationException();
+    }
+
     public List<RoomSetOfKind> findHotelBy(int hotel_id) {
         throw new UnsupportedOperationException();
     }

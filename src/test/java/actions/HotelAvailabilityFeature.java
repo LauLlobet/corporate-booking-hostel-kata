@@ -1,5 +1,6 @@
 package actions;
 
+import model.Hotels;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,7 +14,7 @@ public class HotelAvailabilityFeature {
 
     @Test
     public void store_describe_and_override_hotels_to_prevent_unexisting_room_bookings() {
-        HotelService hotelService = new HotelService();
+        HotelService hotelService = new HotelService(new Hotels());
 
         hotelService.setRoomType(CORRECT_HOTEL_ID,"suite",400);
         hotelService.setRoomType(CORRECT_HOTEL_ID,"suite",2);
