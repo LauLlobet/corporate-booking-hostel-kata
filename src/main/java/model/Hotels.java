@@ -7,11 +7,11 @@ public class Hotels {
     private HashMap<String,RoomSetOfKind> hashtable = new HashMap();
     private String separator = "--";
 
-    public void upsert(int hotelId, RoomSetOfKind roomSetOfKind) {
+    public void upsert(Float hotelId, RoomSetOfKind roomSetOfKind) {
         hashtable.put(hotelId+ separator +roomSetOfKind.getRoomType(),roomSetOfKind);
     }
 
-    public List<RoomSetOfKind> getBy(int hotelId) {
+    public List<RoomSetOfKind> getBy(Long hotelId) {
         return hashtable.keySet().stream()
                 .map(Objects::toString)
                 .filter(x -> x.startsWith(hotelId+separator))

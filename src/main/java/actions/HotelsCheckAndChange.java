@@ -12,11 +12,11 @@ public class HotelsCheckAndChange {
         this.hotels = hotels;
     }
 
-    public List<RoomSetOfKind> findHotelBy(int hotelId) {
+    public List<RoomSetOfKind> findHotelBy(Long hotelId) {
         return hotels.getBy(hotelId);
     }
 
-    public void setRoomType(int hotelId, String kindOfRoom, int numberOfRooms) {
+    public void setRoomType(Long hotelId, String kindOfRoom, int numberOfRooms) {
         hotels.upsert(hotelId,new RoomSetOfKind(kindOfRoom,numberOfRooms));
     }
 }

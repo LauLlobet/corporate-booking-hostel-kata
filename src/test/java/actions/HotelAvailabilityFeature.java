@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class HotelAvailabilityFeature {
 
-    private int CORRECT_HOTEL_ID = 1;
-    private int ANOTHER_HOTEL_ID = 5000;
+    private Long CORRECT_HOTEL_ID = 1l;
+    private Long ANOTHER_HOTEL_ID = 5000l;
 
     @Test
     public void store_describe_and_override_hotels_to_prevent_unexisting_room_bookings() {
@@ -33,12 +33,12 @@ public class HotelAvailabilityFeature {
                         new RoomSetOfKind("normal",3)) );
 
         assertThrows(RoomOfKindDontExistForHotel.class, () -> {
-            BookRoom bookRoom = new BookRoom(hotelsCheckAndChange);
+            BookRoom bookRoom = new BookRoom(hotelsCheckAndChange, null);
             bookRoom.book(null,CORRECT_HOTEL_ID,"double",null,null);
         });
 
         assertThrows(UnsupportedOperationException.class, () -> {
-            BookRoom bookRoom = new BookRoom(hotelsCheckAndChange);
+            BookRoom bookRoom = new BookRoom(hotelsCheckAndChange, null);
             bookRoom.book(null,CORRECT_HOTEL_ID,"suite",null,null);
         });
     }
