@@ -10,7 +10,7 @@ public class Hotels {
     private String separator = "--";
 
     public void upsert(int hotelId, RoomSetOfKind roomSetOfKind) {
-        hashtable.put(hotelId+ separator +roomSetOfKind.getRoomKind(),roomSetOfKind);
+        hashtable.put(hotelId+ separator +roomSetOfKind.getRoomType(),roomSetOfKind);
     }
 
     public List<RoomSetOfKind> getBy(int hotelId) {

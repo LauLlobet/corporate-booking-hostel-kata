@@ -11,7 +11,7 @@ public class RoomSetOfKind {
         this.quantity = quantity;
     }
 
-    public String getRoomKind() {
+    public String getRoomType() {
         return roomKind;
     }
 

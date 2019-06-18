@@ -1,6 +1,7 @@
 package actions;
 
 import model.Hotels;
+import model.RoomOfKindDontExistForHotel;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -31,8 +32,13 @@ public class HotelAvailabilityFeature {
                         new RoomSetOfKind("normal",3)) );
 
         assertThrows(RoomOfKindDontExistForHotel.class, () -> {
-            BookingService bookingService = new BookingService();
+            BookingService bookingService = new BookingService(hotelService);
             bookingService.book(null,CORRECT_HOTEL_ID,"double",null,null);
+        });
+
+        assertThrows(UnsupportedOperationException.class, () -> {
+            BookingService bookingService = new BookingService(hotelService);
+            bookingService.book(null,CORRECT_HOTEL_ID,"suite",null,null);
         });
     }
 }
