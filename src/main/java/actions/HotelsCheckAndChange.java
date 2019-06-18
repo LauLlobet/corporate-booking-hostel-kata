@@ -1,13 +1,14 @@
 package actions;
 
 import model.Hotels;
+import model.RoomSetOfKind;
 
 import java.util.List;
 
-public class HotelService {
+public class HotelsCheckAndChange {
     private Hotels hotels;
 
-    public HotelService(Hotels hotels) {
+    public HotelsCheckAndChange(Hotels hotels) {
         this.hotels = hotels;
     }
 

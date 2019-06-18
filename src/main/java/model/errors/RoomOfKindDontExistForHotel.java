@@ -1,4 +1,4 @@
-package model;
+package model.errors;
 
 public class RoomOfKindDontExistForHotel extends Throwable{
 }

@@ -1,18 +1,18 @@
-package actions;
+package model;
 
 import java.util.Objects;
 
 public class RoomSetOfKind {
-    private final String roomKind;
+    private final String roomType;
     private final int quantity;
 
     public RoomSetOfKind(String roomKind, int quantity) {
-        this.roomKind = roomKind;
+        this.roomType = roomKind;
         this.quantity = quantity;
     }
 
     public String getRoomType() {
-        return roomKind;
+        return roomType;
     }
 
     public int getQuantity() {
@@ -25,11 +25,11 @@ public class RoomSetOfKind {
         if (o == null || getClass() != o.getClass()) return false;
         RoomSetOfKind that = (RoomSetOfKind) o;
         return quantity == that.quantity &&
-                Objects.equals(roomKind, that.roomKind);
+                Objects.equals(roomType, that.roomType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(roomKind, quantity);
+        return Objects.hash(roomType, quantity);
     }
 }
