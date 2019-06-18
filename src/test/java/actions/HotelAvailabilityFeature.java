@@ -3,6 +3,8 @@ package actions;
 import model.Hotels;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -21,10 +23,12 @@ public class HotelAvailabilityFeature {
         hotelService.setRoomType(CORRECT_HOTEL_ID,"normal",3);
         hotelService.setRoomType(ANOTHER_HOTEL_ID,"normal",4);
 
-        assertThat(hotelService.findHotelBy(CORRECT_HOTEL_ID),
+        List<RoomSetOfKind> foundHotels = hotelService.findHotelBy(CORRECT_HOTEL_ID);
+
+        assertThat(foundHotels,
                 containsInAnyOrder(
                         new RoomSetOfKind("suite",2),
-                        new RoomSetOfKind("standard",3)) );
+                        new RoomSetOfKind("normal",3)) );
 
         assertThrows(RoomOfKindDontExistForHotel.class, () -> {
             BookingService bookingService = new BookingService();

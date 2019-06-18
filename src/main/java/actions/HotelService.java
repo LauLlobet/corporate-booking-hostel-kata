@@ -5,15 +5,17 @@ import model.Hotels;
 import java.util.List;
 
 public class HotelService {
+    private Hotels hotels;
+
     public HotelService(Hotels hotels) {
-        throw new UnsupportedOperationException();
+        this.hotels = hotels;
     }
 
-    public List<RoomSetOfKind> findHotelBy(int hotel_id) {
-        throw new UnsupportedOperationException();
+    public List<RoomSetOfKind> findHotelBy(int hotelId) {
+        return hotels.getBy(hotelId);
     }
 
-    public void setRoomType(int correct_hotel_id, String suite, int i) {
-        throw new UnsupportedOperationException();
+    public void setRoomType(int hotelId, String kindOfRoom, int numberOfRooms) {
+        hotels.upsert(hotelId,new RoomSetOfKind(kindOfRoom,numberOfRooms));
     }
 }
